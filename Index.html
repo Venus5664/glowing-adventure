@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>นางมณโฑขึ้นพ้อ - A STUDY OF THE KHON PERFORMANCE</title>
+    <style>
+        /* รีเซ็ตค่าเริ่มต้นของเบราว์เซอร์ */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        /* คอนเทนเนอร์หลักสำหรับทำสไลด์ */
+        .slider-container {
+            width: 100%;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        /* ซ่อน Scrollbar ให้ดูสะอาดตา */
+        .slider-container::-webkit-scrollbar {
+            display: none;
+        }
+        .slider-container {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* ตั้งค่าแต่ละหน้าสไลด์ */
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* ตั้งค่ารูปภาพปกติให้พอดีหน้าจอ */
+        .slide > img {
+            max-width: 100%;
+            max-height: 100vh;
+            object-fit: contain;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        /* ----- ส่วนเฉพาะสำหรับรูปที่มีจุดกดคลิก (สไลด์ 7) ----- */
+        .interactive-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 100vw;
+            max-height: 100vh;
+            aspect-ratio: 16 / 9; /* ล็อกสัดส่วนให้ตรงกับภาพต้นฉบับ 100% */
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .interactive-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        /* ปุ่มล่องหนสำหรับกดไปลิงก์ */
+        .click-area {
+            position: absolute;
+            z-index: 10;
+            cursor: pointer;
+            border-radius: 30px; /* มุมโค้งตามหน้าจอมือถือ */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* เอฟเฟกต์เวลานำเมาส์ไปชี้ */
+        .click-area:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6); /* เรืองแสงสีทอง */
+            background: rgba(255, 255, 255, 0.05); /* สว่างขึ้นนิดหน่อย */
+        }
+
+        /* พิกัดจอ Facebook (ซ้าย) */
+        .link-fb {
+            left: 22%;
+            top: 38%;
+            width: 18%;
+            height: 54%;
+        }
+
+        /* พิกัดจอ Instagram (ขวา) */
+        .link-ig {
+            left: 60%;
+            top: 38%;
+            width: 18%;
+            height: 54%;
+        }
+        /* ---------------------------------------------------- */
+
+        /* เครดิตผู้สร้าง */
+        .credit {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            color: rgba(255, 255, 255, 0.3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            letter-spacing: 2px;
+            z-index: 20;
+            pointer-events: none; /* ป้องกันไม่ให้ตัวหนังสือบังจุดคลิก */
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider-container">
+    <!-- รูปที่ 1: หน้าปก -->
+    <div class="slide">
+        <img src="1.png" alt="หน้าปก">
+    </div>
+
+    <!-- รูปที่ 2: ความเป็นมา -->
+    <div class="slide">
+        <img src="4.png" alt="ความเป็นมา">
+    </div>
+
+    <!-- รูปที่ 3: วัตถุประสงค์ -->
+    <div class="slide">
+        <img src="3.png" alt="วัตถุประสงค์">
+    </div>
+
+    <!-- รูปที่ 4: กรอบแนวคิด -->
+    <div class="slide">
+        <img src="5.png" alt="กรอบแนวคิด">
+    </div>
+
+    <!-- รูปที่ 5: สรุปผลการวิจัย -->
+    <div class="slide">
+        <img src="6.png" alt="สรุปผลการวิจัย">
+    </div>
+
+    <!-- รูปที่ 6: คณะผู้วิจัย -->
+    <div class="slide">
+        <img src="2.png" alt="คณะผู้วิจัย">
+        <div class="credit">BY VENUS</div>
+    </div>
+
+    <!-- รูปที่ 7: ช่องทางการติดตาม (แก้ไขให้กดลิงก์ได้) -->
+    <div class="slide">
+        <div class="interactive-wrapper">
+            <img src="7.png" alt="ช่องทางการติดตามนางมณโฑขึ้นพ้อ">
+
+            <!-- จุดกดเฟสบุ๊ค -->
+            <a href="https://www.facebook.com/share/1CdH22MfT1/?mibextid=wwXIfr" target="_blank" class="click-area link-fb" title="ไปยังเพจ Facebook"></a>
+
+            <!-- จุดกดไอจี -->
+            <a href="https://www.instagram.com/nangmontho_khenpor?stkn=djhlbnR3cHY1eHhz" target="_blank" class="click-area link-ig" title="ไปยัง Instagram"></a>
+        </div>
+        <div class="credit">BY VENUS</div>
+    </div>
+</div>
+
+</body>
+</html>
